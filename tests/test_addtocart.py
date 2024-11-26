@@ -1,4 +1,3 @@
-from selenium import webdriver
 from Locators.Page_Locators import AddToCart
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -6,31 +5,26 @@ from selenium.webdriver.support import expected_conditions as EC
 import logging
 import datetime
 import pytest
+
 # this create a logger instance
 logger = logging.getLogger(__name__)
 
-@pytest.fixture
-def browser():
-    logger.info('Launching Google Chrome Browser')
-    browser = webdriver.Chrome()
-    browser.maximize_window()
-    yield browser
-    logger.info("Test completed, closing browser")
-    browser.quit()
+def test_add_to_cart(driver):
+    browser_name = driver.capabilities.get('browserName', 'unknown')
 
-def test_add_to_cart(browser):
-    browser.get('https://automationexercise.com/')
-    add_to_cart = AddToCart(browser)
+    logger.info(f'{browser_name} browser opened successfully')
+    driver.get('https://automationexercise.com/')
+    add_to_cart = AddToCart(driver)
 
     try:
-        logger.info('Browser opened successfully')
+        logger.info(f'Page Title: {driver.title}') # Log the title of the page
         products_link = add_to_cart.Productslink()
         products_link.button_click()
-        browser.execute_script('window.scrollBy(0, 300)')
+        driver.execute_script('window.scrollBy(0, 300)')
 
         # Assert that the product page is opened (check for a unique element)
         try:
-            WebDriverWait(browser, 10).until(EC.title_is("Automation Exercise - All Products"))
+            WebDriverWait(driver, 10).until(EC.title_is("Automation Exercise - All Products"))
             logger.info('Redirected to Products page')
         except Exception:
             raise AssertionError("Test Failed: Products page not opened")
@@ -54,7 +48,7 @@ def test_add_to_cart(browser):
         logger.info('Changing quantity to 2')
         ChangeQuantity = add_to_cart.ChangeQuantity()
         ChangeQuantity.hover_over()
-        browser.execute_script("arguments[0].stepUp();",
+        driver.execute_script("arguments[0].stepUp();",
                                ChangeQuantity.web_element)  # Use JavaScript to change the quantity (step up to increase is, down to decrease)
 
         # Assert that the quantity was updated
@@ -72,12 +66,12 @@ def test_add_to_cart(browser):
         add_to_cart.AddReview().input_text('This is my Review\n'
                                    'This is the 2nd line of Review\n'
                                    '3rd line of Review')
-        browser.execute_script('window.scrollBy(0, 800)')
+        driver.execute_script('window.scrollBy(0, 800)')
         SubmitReview = add_to_cart.SubmitReview()
         SubmitReview.button_click()
 
         # Assert that the review was submitted (check for success message)
-        assert "Thank you for your review." in browser.page_source, "Test Failed: Review not submitted"
+        assert "Thank you for your review." in driver.page_source, "Test Failed: Review not submitted"
 
         """Add to Cart and view cart"""
         logger.info('Adding product 2 to cart')
@@ -88,7 +82,7 @@ def test_add_to_cart(browser):
         ViewCartLink.button_click()
         # Assert that the cart page is opened
         try:
-            WebDriverWait(browser, 10).until(EC.title_is("Automation Exercise - Checkout"))
+            WebDriverWait(driver, 10).until(EC.title_is("Automation Exercise - Checkout"))
             logger.info('Redirected to Cart page')
         except Exception:
             raise AssertionError("Test Failed: Cart page not opened")
@@ -106,5 +100,5 @@ def test_add_to_cart(browser):
     except Exception as e:
         logger.error(f"An error occurred: {e}")
         # Take a screenshot when an error occurs
-        add_to_cart.take_screenshot(f"error_screenshot_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.png")
+        add_to_cart.take_screenshot(f"Error_Screenshot_on_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.png")
         pytest.fail(f"Test Failed: {e}")
