@@ -55,3 +55,16 @@ def driver(request):
     driver.quit()
     logging.info(f"Test completed for {browser_name}.")
     logging.getLogger().removeHandler(file_handler)
+
+
+@pytest.fixture
+def take_screenshot(driver):
+    #Take a screenshot and save it to the specified directory.
+    def this_screenshot(filename):
+        if not os.path.exists("Screenshots"):
+            os.makedirs("Screenshots")
+        screenshot_path = os.path.join("Screenshots", filename)
+        driver.save_screenshot(screenshot_path)
+        print(f"Screenshot saved to: {screenshot_path}")
+        return screenshot_path
+    return this_screenshot

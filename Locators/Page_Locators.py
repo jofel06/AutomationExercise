@@ -1,6 +1,5 @@
 from BaseElement.Base_Page import BaseElement
 from selenium.webdriver.common.by import By
-import os
 import logging
 
 logger = logging.getLogger(__name__)
@@ -97,13 +96,14 @@ class UserRegistration:
         locator = (By.CSS_SELECTOR, "button[data-qa='create-account']")
         return BaseElement(self.driver, locator)
 
-    def take_screenshot(self, filename):
-        """Take a screenshot and save it to the specified directory."""
-        if not os.path.exists("Screenshots"):
-            os.makedirs("Screenshots")
-        screenshot_path = os.path.join("Screenshots", filename)
-        self.driver.save_screenshot(screenshot_path)
-        print(f"Screenshot saved to: {screenshot_path}")
+    def cont_account(self):
+        locator = (By.XPATH, "//div[@class='pull-right']//a[@class='btn btn-primary']")
+        return BaseElement(self.driver, locator)
+
+    def delete_acct(self):
+        locator = (By.XPATH, "//ul[@class='nav navbar-nav']//i[@class='fa fa-trash-o']")
+        return BaseElement(self.driver, locator)
+
 
 class AddToCart:
     def __init__(self, driver):
@@ -168,13 +168,5 @@ class AddToCart:
     def ProceedToCheckout(self):
         locator = (By.CSS_SELECTOR, "a[class='btn btn-default check_out']")
         return BaseElement(self.driver, locator)
-
-    def take_screenshot(self, filename):
-        """Take a screenshot and save it to the specified directory."""
-        if not os.path.exists("Screenshots"):
-            os.makedirs("Screenshots")
-        screenshot_path = os.path.join("Screenshots", filename)
-        self.driver.save_screenshot(screenshot_path)
-        print(f"Screenshot saved to: {screenshot_path}")
 
 

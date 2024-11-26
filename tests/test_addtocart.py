@@ -9,7 +9,7 @@ import pytest
 # this create a logger instance
 logger = logging.getLogger(__name__)
 
-def test_add_to_cart(driver):
+def test_add_to_cart(driver, take_screenshot):
     browser_name = driver.capabilities.get('browserName', 'unknown')
 
     logger.info(f'{browser_name} browser opened successfully')
@@ -99,6 +99,6 @@ def test_add_to_cart(driver):
 
     except Exception as e:
         logger.error(f"An error occurred: {e}")
-        # Take a screenshot when an error occurs
-        add_to_cart.take_screenshot(f"Error_Screenshot_on_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.png")
-        pytest.fail(f"Test Failed: {e}")
+        screenshot_error = (f"Error_Screenshot_at_{browser_name}_on_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.png")
+        take_screenshot(screenshot_error)
+        pytest.fail()

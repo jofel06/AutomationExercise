@@ -1,5 +1,4 @@
 import pytest
-from selenium import webdriver
 from Locators.Page_Locators import UserRegistration
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -7,21 +6,16 @@ from selenium.webdriver.support import expected_conditions as EC
 import logging
 import datetime
 
-# this create a logger instance
+from conftest import take_screenshot
+
 logger = logging.getLogger(__name__)
 
-@pytest.fixture
-def browser():
-    logger.info('Launching Google Chrome Browser')
-    browser = webdriver.Chrome()
-    browser.maximize_window()
-    yield browser
-    logger.info("Test completed, closing browser")
-    browser.quit()
+def test_user_registration(driver, take_screenshot):
+    browser_name = driver.capabilities.get('browserName', 'unknown')
+    logger.info(f'{browser_name} browser opened successfully')
 
-def test_user_registration(browser):
-    browser.get('https://automationexercise.com/')
-    user_registration = UserRegistration(browser)
+    driver.get('https://automationexercise.com/')
+    user_registration = UserRegistration(driver)
 
     try:
         logger.info('Browser opened successfully')
@@ -29,7 +23,7 @@ def test_user_registration(browser):
         signup_login.button_click()
 
         try:
-            WebDriverWait(browser, 10).until(EC.title_is("Automation Exercise - Signup / Login"))
+            WebDriverWait(driver, 10).until(EC.title_is("Automation Exercise - Signup / Login"))
             logger.info('Redirected to Signup / login page')
         except Exception:
             raise AssertionError("Test Failed: Signup / Registration page not opened")
@@ -42,7 +36,7 @@ def test_user_registration(browser):
         signup = user_registration.button_signup()
         signup.button_click()
         try:
-            WebDriverWait(browser, 10).until(EC.title_is("Automation Exercise - Signup"))
+            WebDriverWait(driver, 10).until(EC.title_is("Automation Exercise - Signup"))
             logger.info('Redirected to Signup / Registration page')
         except Exception:
             raise AssertionError("Test Failed: Signup / Registration page not opened")
@@ -76,13 +70,20 @@ def test_user_registration(browser):
         logger.info('Clicking the Create Account button')
         create_account = user_registration.button_create_account()
         create_account.button_click()
+
         try:
-            WebDriverWait(browser, 10).until(EC.title_is("Automation Exercise - Account Created"))
+            WebDriverWait(driver, 10).until(EC.title_is("Automation Exercise - Account Created"))
             logger.info('Account Registration Successful')
         except Exception:
             raise AssertionError("Test Failed: Account Registration Failed")
 
+        user_registration.cont_account().button_click()
+        user_registration.delete_acct().button_click()
+        logger.info('Account Successfully Deleted')
+
     except Exception as e:
         logger.error(f"An error occurred: {e}")
-        user_registration.take_screenshot(f"error_screenshot_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.png")
-        pytest.fail(f"Test Failed: {e}")
+        screenshot_error = (f"Error_Screenshot_at_{browser_name}_on_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.png")
+        take_screenshot(screenshot_error)
+        pytest.fail()
+
