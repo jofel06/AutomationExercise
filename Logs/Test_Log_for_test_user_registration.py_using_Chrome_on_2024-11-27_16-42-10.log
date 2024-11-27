@@ -1,0 +1,13 @@
+2024-11-27 16:42:11,922 - INFO - chrome browser opened successfully
+2024-11-27 16:42:20,500 - INFO - Clicking the Signup/Login icon
+2024-11-27 16:42:22,193 - INFO - Redirected to Signup / login page
+2024-11-27 16:42:22,194 - INFO - Typing New username and email address
+2024-11-27 16:42:22,408 - INFO - Clicking Signup button
+2024-11-27 16:42:23,222 - INFO - Redirected to Signup / Registration page
+2024-11-27 16:42:23,222 - INFO - Typing Account Information
+2024-11-27 16:42:23,835 - INFO - Checking sign up News letter and Receive Special offers checkbox
+2024-11-27 16:42:23,990 - INFO - Typing Address Information
+2024-11-27 16:42:24,781 - INFO - Clicking the Create Account button
+2024-11-27 16:42:26,323 - INFO - Account Registration Successful
+2024-11-27 16:42:30,353 - INFO - Account Successfully Deleted
+2024-11-27 16:42:32,479 - INFO - Test completed for test_user_registration.py using Chrome.

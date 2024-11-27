@@ -1,8 +1,0 @@
-2024-11-27 14:43:23,978 - INFO - chrome browser opened successfully
-2024-11-27 14:43:33,608 - INFO - Website opened successfully
-2024-11-27 14:43:36,361 - INFO - Redirected to the Signup/Login page
-2024-11-27 14:43:36,361 - INFO - Entering valid email
-2024-11-27 14:43:36,492 - INFO - Entering valid password
-2024-11-27 14:43:39,494 - INFO - Login Successful, redirected to the Homepage
-2024-11-27 14:43:39,494 - INFO - Logging out
-2024-11-27 14:43:43,142 - INFO - Test completed for Chrome.

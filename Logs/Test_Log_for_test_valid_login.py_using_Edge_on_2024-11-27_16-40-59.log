@@ -1,0 +1,7 @@
+2024-11-27 16:41:00,767 - INFO - MicrosoftEdge browser opened successfully
+2024-11-27 16:41:11,671 - INFO - Redirected to the Signup/Login page
+2024-11-27 16:41:11,671 - INFO - Entering valid email
+2024-11-27 16:41:11,772 - INFO - Entering valid password
+2024-11-27 16:41:14,917 - INFO - Login Successful, redirected to the Homepage
+2024-11-27 16:41:14,917 - INFO - Logging out
+2024-11-27 16:41:17,980 - INFO - Test completed for test_valid_login.py using Edge.

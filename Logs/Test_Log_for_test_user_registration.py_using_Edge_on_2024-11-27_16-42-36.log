@@ -1,0 +1,13 @@
+2024-11-27 16:42:37,893 - INFO - MicrosoftEdge browser opened successfully
+2024-11-27 16:42:41,860 - INFO - Clicking the Signup/Login icon
+2024-11-27 16:42:43,129 - INFO - Redirected to Signup / login page
+2024-11-27 16:42:43,130 - INFO - Typing New username and email address
+2024-11-27 16:42:43,343 - INFO - Clicking Signup button
+2024-11-27 16:42:44,484 - INFO - Redirected to Signup / Registration page
+2024-11-27 16:42:44,484 - INFO - Typing Account Information
+2024-11-27 16:42:45,056 - INFO - Checking sign up News letter and Receive Special offers checkbox
+2024-11-27 16:42:45,211 - INFO - Typing Address Information
+2024-11-27 16:42:46,096 - INFO - Clicking the Create Account button
+2024-11-27 16:42:47,205 - INFO - Account Registration Successful
+2024-11-27 16:42:49,416 - INFO - Account Successfully Deleted
+2024-11-27 16:42:51,590 - INFO - Test completed for test_user_registration.py using Edge.

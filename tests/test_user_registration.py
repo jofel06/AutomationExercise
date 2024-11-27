@@ -8,15 +8,16 @@ import datetime
 
 logger = logging.getLogger(__name__)
 
-def test_user_registration(driver, take_screenshot):
+def test_user_registration(driver, take_screenshot, request):
     browser_name = driver.capabilities.get('browserName', 'unknown')
-    logger.info(f'{browser_name} browser opened successfully')
+    test_file_name = request.node.parent.name  # This gives the test file's name
 
+    logger.info(f'{browser_name} browser opened successfully')
     driver.get('https://automationexercise.com/')
     user_registration = UserRegistration(driver)
 
     try:
-        logger.info('Browser opened successfully')
+        logger.info('Clicking the Signup/Login icon')
         signup_login = user_registration.signup_login_icon()
         signup_login.button_click()
 
@@ -81,7 +82,8 @@ def test_user_registration(driver, take_screenshot):
 
     except Exception as e:
         logger.error(f"An error occurred: {e}")
-        screenshot_error = (f"Error_Screenshot_at_{browser_name}_on_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.png")
+        screenshot_error = (f"Error_Screenshot_at_{test_file_name}_using_{browser_name}_on_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.png")
         take_screenshot(screenshot_error)
         pytest.fail()
+
 

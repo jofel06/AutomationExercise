@@ -5,12 +5,14 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from Locators.Page_Locators import ValidLogin
 
+
 logger = logging.getLogger(__name__)
 
-def test_valid_login(driver, take_screenshot, valid_login_credentials):
+def test_valid_login(driver, valid_login_credentials, take_screenshot, request):
     browser_name = driver.capabilities.get('browserName', 'unknown')
-    logger.info(f'{browser_name} browser opened successfully')
+    test_file_name = request.node.parent.name
 
+    logger.info(f'{browser_name} browser opened successfully')
     driver.get("https://automationexercise.com/")
     valid_login = ValidLogin(driver)
 
@@ -42,7 +44,7 @@ def test_valid_login(driver, take_screenshot, valid_login_credentials):
 
     except Exception as e:
         logger.error(f"An error occurred: {e}")
-        screenshot_error = (f"Error_Screenshot_at_{browser_name}_on_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.png")
+        screenshot_error = (f"Error_Screenshot_at_{test_file_name}_using_{browser_name}_on_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.png")
         take_screenshot(screenshot_error)
         pytest.fail()
 
