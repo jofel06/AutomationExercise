@@ -169,4 +169,32 @@ class AddToCart:
         locator = (By.CSS_SELECTOR, "a[class='btn btn-default check_out']")
         return BaseElement(self.driver, locator)
 
+class ValidLogin:
+    def __init__(self, driver):
+        self.driver = driver
+
+    def signup_login_icon(self):
+        locator = (By.XPATH, "//div[@class='shop-menu pull-right']//a[@href='/login']")
+        return BaseElement(self.driver, locator)
+
+    def enter_valid_email(self):
+        locator = (By.CSS_SELECTOR, "input[data-qa='login-email']")
+        return BaseElement(self.driver, locator)
+
+    def enter_valid_password(self):
+        locator = (By.CSS_SELECTOR, "input[data-qa='login-password']")
+        return BaseElement(self.driver, locator)
+
+    def valid_login_button(self):
+        locator = (By.CSS_SELECTOR, "button[data-qa='login-button']")
+        return BaseElement(self.driver, locator)
+
+    def logout_button(self):
+        locator = (By.XPATH, "//div[@class='shop-menu pull-right']//a[@href='/logout']")
+        return BaseElement(self.driver, locator)
+
+
+
+
+
 

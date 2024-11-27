@@ -6,8 +6,6 @@ from selenium.webdriver.support import expected_conditions as EC
 import logging
 import datetime
 
-from conftest import take_screenshot
-
 logger = logging.getLogger(__name__)
 
 def test_user_registration(driver, take_screenshot):

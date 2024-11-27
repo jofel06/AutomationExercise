@@ -1,0 +1,8 @@
+2024-11-27 14:44:31,353 - INFO - MicrosoftEdge browser opened successfully
+2024-11-27 14:44:39,590 - INFO - Website opened successfully
+2024-11-27 14:44:40,801 - INFO - Redirected to the Signup/Login page
+2024-11-27 14:44:40,801 - INFO - Entering valid email
+2024-11-27 14:44:40,886 - INFO - Entering valid password
+2024-11-27 14:44:44,211 - INFO - Login Successful, redirected to the Homepage
+2024-11-27 14:44:44,211 - INFO - Logging out
+2024-11-27 14:44:47,706 - INFO - Test completed for Edge.
