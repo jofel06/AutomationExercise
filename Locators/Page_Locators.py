@@ -130,11 +130,7 @@ class AddToCart:
         locator = (By.CSS_SELECTOR, "input[id='quantity']")
         return BaseElement(self.driver, locator)
 
-    def AddtoCart(self):
-        locator = (By.CSS_SELECTOR, "button[class='btn btn-default cart']")
-        return BaseElement(self.driver, locator)
-
-    def AddtoCartButton(self):
+    def Product2_add_to_cart(self):
         locator = (By.CSS_SELECTOR, "button[class='btn btn-default cart']")
         return BaseElement(self.driver, locator)
 

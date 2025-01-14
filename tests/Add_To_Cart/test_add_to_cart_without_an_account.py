@@ -4,7 +4,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 import logging
 import datetime
-import pytest
 
 # this create a logger instance
 logger = logging.getLogger(__name__)
@@ -15,11 +14,11 @@ def test_add_to_cart(driver, take_screenshot, request):
 
     logger.info(f'{browser_name} browser opened successfully')
     driver.get('https://automationexercise.com/')
-    add_to_cart = AddToCart(driver)
+    add_to_cart_without_account = AddToCart(driver)
 
     try:
         logger.info(f'Page Title: {driver.title}') # Log the title of the page
-        products_link = add_to_cart.Productslink()
+        products_link = add_to_cart_without_account.Productslink()
         products_link.button_click()
         driver.execute_script('window.scrollBy(0, 300)')
 
@@ -32,22 +31,22 @@ def test_add_to_cart(driver, take_screenshot, request):
 
         """Add to Cart the first product"""
         logger.info('Viewing Product 1')
-        ChooseProduct1 = add_to_cart.Product1()
+        ChooseProduct1 = add_to_cart_without_account.Product1()
         ChooseProduct1.hover_over()
-        Product1_AddToCart = add_to_cart.Product1_AddToCart()
+        Product1_AddToCart = add_to_cart_without_account.Product1_AddToCart()
         Product1_AddToCart.button_click()
 
         # Assert that the 'Continue Shopping' button appears after adding the product to the cart
-        ContinueShopping_button = add_to_cart.ContinueShoppingButton()
+        ContinueShopping_button = add_to_cart_without_account.ContinueShoppingButton()
         assert ContinueShopping_button.is_displayed(), "Test Failed: Continue Shopping button not displayed"
         ContinueShopping_button.button_click()
         logger.info("Product 1 added to cart")
 
         """View the 2nd product and change the Quantity"""
         logger.info('Clicking product 2')
-        add_to_cart.ViewProduct_2().button_click()
+        add_to_cart_without_account.ViewProduct_2().button_click()
         logger.info('Changing quantity to 2')
-        ChangeQuantity = add_to_cart.ChangeQuantity()
+        ChangeQuantity = add_to_cart_without_account.ChangeQuantity()
         ChangeQuantity.hover_over()
         driver.execute_script("arguments[0].stepUp();",
                                ChangeQuantity.web_element)  # Use JavaScript to change the quantity (step up to increase is, down to decrease)
@@ -62,13 +61,13 @@ def test_add_to_cart(driver, take_screenshot, request):
 
         """Write Review"""
         logger.info("Writing a review")
-        add_to_cart.EnterName().input_text('My name')
-        add_to_cart.EnterEmail().input_text('sample@gmail.com')
-        add_to_cart.AddReview().input_text('This is my Review\n'
+        add_to_cart_without_account.EnterName().input_text('My name')
+        add_to_cart_without_account.EnterEmail().input_text('sample@gmail.com')
+        add_to_cart_without_account.AddReview().input_text('This is my Review\n'
                                    'This is the 2nd line of Review\n'
                                    '3rd line of Review')
         driver.execute_script('window.scrollBy(0, 800)')
-        SubmitReview = add_to_cart.SubmitReview()
+        SubmitReview = add_to_cart_without_account.SubmitReview()
         SubmitReview.button_click()
 
         # Assert that the review was submitted (check for success message)
@@ -76,10 +75,10 @@ def test_add_to_cart(driver, take_screenshot, request):
 
         """Add to Cart and view cart"""
         logger.info('Adding product 2 to cart')
-        AddToCartButton = add_to_cart.AddtoCartButton()
+        AddToCartButton = add_to_cart_without_account.Product2_add_to_cart()
         AddToCartButton.button_click()
         logger.info('Viewing cart page')
-        ViewCartLink = add_to_cart.ViewCart()
+        ViewCartLink = add_to_cart_without_account.ViewCart()
         ViewCartLink.button_click()
         # Assert that the cart page is opened
         try:
@@ -90,16 +89,15 @@ def test_add_to_cart(driver, take_screenshot, request):
 
         """Delete an item from the cart and then checkout"""
         logger.info("Deleting an item")
-        DeleteFromCart_button = add_to_cart.DeleteItemfromCart()
+        DeleteFromCart_button = add_to_cart_without_account.DeleteItemfromCart()
         DeleteFromCart_button.button_click()
 
         """Proceed to Checkout"""
         logger.info("Proceeding to Checkout")
-        ProceedToCheckout_button = add_to_cart.ProceedToCheckout()
+        ProceedToCheckout_button = add_to_cart_without_account.ProceedToCheckout()
         ProceedToCheckout_button.button_click()
 
     except Exception as e:
         logger.error(f"An error occurred: {e}")
         screenshot_error = (f"Error_Screenshot_at_{test_file_name}_using_{browser_name}_on_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.png")
         take_screenshot(screenshot_error)
-        pytest.fail()
