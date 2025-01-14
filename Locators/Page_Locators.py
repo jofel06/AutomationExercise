@@ -1,8 +1,5 @@
 from BaseElement.Base_Page import BaseElement
 from selenium.webdriver.common.by import By
-import logging
-
-logger = logging.getLogger(__name__)
 
 class UserRegistration:
     def __init__(self, driver):

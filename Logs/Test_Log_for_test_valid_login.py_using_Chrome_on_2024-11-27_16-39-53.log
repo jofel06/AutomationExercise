@@ -1,7 +1,0 @@
-2024-11-27 16:39:54,471 - INFO - chrome browser opened successfully
-2024-11-27 16:40:00,599 - INFO - Redirected to the Signup/Login page
-2024-11-27 16:40:00,599 - INFO - Entering valid email
-2024-11-27 16:40:00,716 - INFO - Entering valid password
-2024-11-27 16:40:05,509 - INFO - Login Successful, redirected to the Homepage
-2024-11-27 16:40:05,509 - INFO - Logging out
-2024-11-27 16:40:09,479 - INFO - Test completed for test_valid_login.py using Chrome.
