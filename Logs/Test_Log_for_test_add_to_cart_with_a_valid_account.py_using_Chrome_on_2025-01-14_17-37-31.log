@@ -1,0 +1,13 @@
+2025-01-14 17:37:41,259 - INFO - chrome browser opened successfully
+2025-01-14 17:37:42,823 - INFO - Signup / Login page opened
+2025-01-14 17:37:42,823 - INFO - Entering valid email
+2025-01-14 17:37:42,923 - INFO - Entering valid password
+2025-01-14 17:37:42,995 - INFO - Logging in
+2025-01-14 17:37:45,924 - INFO - Login Successful, redirected to the Homepage
+2025-01-14 17:37:45,924 - INFO - Opening product page
+2025-01-14 17:37:48,741 - INFO - Product page opened
+2025-01-14 17:37:48,741 - INFO - Selecting product 1
+2025-01-14 17:37:49,062 - INFO - Adding to Cart
+2025-01-14 17:37:49,131 - INFO - Item successfully added to cart
+2025-01-14 17:37:49,671 - ERROR - An error occurred: Test Failed: Continue Shopping button
+2025-01-14 17:37:51,994 - INFO - Test completed for test_add_to_cart_with_a_valid_account.py using Chrome.

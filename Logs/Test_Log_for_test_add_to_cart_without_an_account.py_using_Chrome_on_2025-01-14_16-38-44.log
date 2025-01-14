@@ -1,0 +1,15 @@
+2025-01-14 16:38:46,309 - INFO - chrome browser opened successfully
+2025-01-14 16:38:48,887 - INFO - Page Title: Automation Exercise
+2025-01-14 16:38:50,219 - INFO - Redirected to Products page
+2025-01-14 16:38:50,219 - INFO - Viewing Product 1
+2025-01-14 16:38:51,210 - INFO - Product 1 added to cart
+2025-01-14 16:38:51,210 - INFO - Clicking product 2
+2025-01-14 16:38:52,472 - INFO - Changing quantity to 2
+2025-01-14 16:38:52,753 - INFO - Product Quantity changed correctly
+2025-01-14 16:38:52,759 - INFO - Writing a review
+2025-01-14 16:38:53,140 - INFO - Adding product 2 to cart
+2025-01-14 16:38:53,205 - INFO - Viewing cart page
+2025-01-14 16:38:54,946 - INFO - Redirected to Cart page
+2025-01-14 16:38:54,946 - INFO - Deleting an item
+2025-01-14 16:38:55,020 - INFO - Proceeding to Checkout
+2025-01-14 16:38:57,237 - INFO - Test completed for test_add_to_cart_without_an_account.py using Chrome.

@@ -1,0 +1,23 @@
+2025-01-14 17:46:19,768 - INFO - MicrosoftEdge browser opened successfully
+2025-01-14 17:46:20,941 - INFO - Signup / Login page opened
+2025-01-14 17:46:20,941 - INFO - Entering valid email
+2025-01-14 17:46:21,008 - INFO - Entering valid password
+2025-01-14 17:46:21,075 - INFO - Logging in
+2025-01-14 17:46:22,729 - INFO - Login Successful, redirected to the Homepage
+2025-01-14 17:46:22,729 - INFO - Opening product page
+2025-01-14 17:46:24,155 - INFO - Product page opened
+2025-01-14 17:46:24,159 - INFO - Selecting product 1
+2025-01-14 17:46:24,463 - INFO - Adding to Cart
+2025-01-14 17:46:24,538 - INFO - Item successfully added to cart
+2025-01-14 17:46:25,142 - INFO - Continue browsing
+2025-01-14 17:46:25,142 - INFO - Viewing product 2
+2025-01-14 17:46:26,259 - INFO - Changing quantity to 2
+2025-01-14 17:46:26,579 - INFO - Product Quantity changed correctly
+2025-01-14 17:46:26,579 - INFO - Writing a review
+2025-01-14 17:46:26,927 - INFO - Adding product 2 to cart
+2025-01-14 17:46:26,999 - INFO - Opening the cart page
+2025-01-14 17:46:28,475 - INFO - Redirected to Cart page
+2025-01-14 17:46:28,475 - INFO - Deleting an item
+2025-01-14 17:46:28,548 - INFO - Proceeding to Checkout
+2025-01-14 17:46:30,268 - INFO - Successfully redirected to Checkout page
+2025-01-14 17:46:32,413 - INFO - Test completed for test_add_to_cart_with_a_valid_account.py using Edge.

@@ -1,0 +1,15 @@
+2025-01-14 16:39:02,794 - INFO - MicrosoftEdge browser opened successfully
+2025-01-14 16:39:08,448 - INFO - Page Title: Automation Exercise
+2025-01-14 16:39:12,166 - INFO - Redirected to Products page
+2025-01-14 16:39:12,166 - INFO - Viewing Product 1
+2025-01-14 16:39:13,167 - INFO - Product 1 added to cart
+2025-01-14 16:39:13,167 - INFO - Clicking product 2
+2025-01-14 16:39:14,298 - INFO - Changing quantity to 2
+2025-01-14 16:39:14,626 - INFO - Product Quantity changed correctly
+2025-01-14 16:39:14,629 - INFO - Writing a review
+2025-01-14 16:39:14,969 - INFO - Adding product 2 to cart
+2025-01-14 16:39:15,048 - INFO - Viewing cart page
+2025-01-14 16:39:16,842 - INFO - Redirected to Cart page
+2025-01-14 16:39:16,842 - INFO - Deleting an item
+2025-01-14 16:39:16,909 - INFO - Proceeding to Checkout
+2025-01-14 16:39:19,179 - INFO - Test completed for test_add_to_cart_without_an_account.py using Edge.
