@@ -4,13 +4,17 @@ import os
 import logging
 from selenium import webdriver
 
-@pytest.hookimpl(tryfirst=True)
-def pytest_configure(config):
-    # Create the Logs directory if it doesn't exist
+# Create the Logs directory if it doesn't exist
+def create_log_dir():
     log_dir = "Logs"
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)
-        logging.info("Logs directory created")
+        logging.info("Logs directory created.")
+
+#this configures pytest and logging
+@pytest.hookimpl(tryfirst=True)
+def pytest_configure(config):
+    create_log_dir()
 
     # Basic logging configuration to display logs in the console
     logging.basicConfig(
