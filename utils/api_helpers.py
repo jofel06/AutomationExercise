@@ -19,7 +19,7 @@ def send_request(endpoint, method="GET", headers=None, params=None, data=None):
     elif method == "PATCH":
         response = requests.put(URL, headers=headers, data=data)
     elif method == "DELETE":
-        response = requests.delete(URL, headers=headers)
+        response = requests.delete(URL, headers=headers, data=data)
 
     if response is not None:
         logging.info(f"Received response status code: {response.status_code} with body: {response.json()}")
