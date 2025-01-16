@@ -1,5 +1,3 @@
-from socks import method
-
 from utils.api_helpers import send_request
 
 def test_post_to_create_register_user_account():
