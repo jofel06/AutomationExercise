@@ -1,3 +1,5 @@
+from socks import method
+
 from utils.api_helpers import send_request
 
 def test_post_to_create_register_user_account():
@@ -23,16 +25,24 @@ def test_post_to_create_register_user_account():
 
     response = send_request("createAccount", method="POST", data=data)
     assert response.status_code == 200, f"Expected 200, but got {response.status_code}"
-    assert response.json().get("responseCode") == 201, "Expected response code 400, but got different"
+    assert response.json().get("responseCode") == 201, "Expected response code 201, but got different"
     assert response.json().get("message") == "User created!", \
         "Response message different than what was expected"
 
+def test_get_user_account_by_email():
+    params = {"email": "mysample010101999@yahoo.com"}
+    response = send_request("getUserDetailByEmail", method="GET", params=params)
+    assert response.status_code == 200, f"Expected 200, but got {response.status_code}"
+
+
+
 def test_to_delete_user_account():
-    data = {"email": "mysample010101999@yahoo.com",
-    "password": "randompass01"}
+    data = {"email": "mysample0101019992@yahoo.com",
+    "password": "randompass012"}
 
     response = send_request("deleteAccount", method="DELETE", data=data)
     assert response.status_code == 200, f"Expected 200, but got {response.status_code}"
-    assert response.json().get("responseCode") == 200, "Expected response code 400, but got different"
+    assert response.json().get("responseCode") == 200, "Expected response code 200, but got different"
     assert response.json().get("message") == "Account deleted!", \
         "Response message different than what was expected"
+
