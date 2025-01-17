@@ -33,10 +33,9 @@ def test_get_user_account_by_email():
     assert response.status_code == 200, f"Expected 200, but got {response.status_code}"
 
 
-
 def test_to_delete_user_account():
-    data = {"email": "mysample0101019992@yahoo.com",
-    "password": "randompass012"}
+    data = {"email": "mysample010101999@yahoo.com",
+    "password": "randompass01"}
 
     response = send_request("deleteAccount", method="DELETE", data=data)
     assert response.status_code == 200, f"Expected 200, but got {response.status_code}"
