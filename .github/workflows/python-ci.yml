@@ -26,6 +26,29 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt  # Install dependencies from requirements.txt
 
+    - name: Install Google Chrome
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable
+
+    - name: Install ChromeDriver
+      run: |
+        wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+        sudo mv chromedriver /usr/local/bin/
+
+    - name: Install Microsoft Edge
+      run: |
+        wget https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/microsoft-edge-stable_115.0.1901.183-1_amd64.deb
+        sudo dpkg -i microsoft-edge-stable_115.0.1901.183-1_amd64.deb
+        sudo apt-get install -f
+
+    - name: Install EdgeDriver
+      run: |
+        wget https://msedgedriver.azureedge.net/115.0.1901.183/edgedriver_linux64.zip
+        unzip edgedriver_linux64.zip
+        sudo mv msedgedriver /usr/local/bin/
+        
     - name: Run tests
       run: |
         pytest  # Run tests using pytest
