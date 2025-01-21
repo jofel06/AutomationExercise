@@ -1,0 +1,23 @@
+2025-01-21 16:01:32,000 - INFO - chrome browser opened successfully
+2025-01-21 16:01:33,306 - INFO - Signup / Login page opened
+2025-01-21 16:01:33,306 - INFO - Entering valid email
+2025-01-21 16:01:33,397 - INFO - Entering valid password
+2025-01-21 16:01:33,472 - INFO - Logging in
+2025-01-21 16:01:35,536 - INFO - Login Successful, redirected to the Homepage
+2025-01-21 16:01:35,536 - INFO - Opening product page
+2025-01-21 16:01:37,176 - INFO - Product page opened
+2025-01-21 16:01:37,182 - INFO - Selecting product 1
+2025-01-21 16:01:37,493 - INFO - Adding to Cart
+2025-01-21 16:01:37,576 - INFO - Item successfully added to cart
+2025-01-21 16:01:38,174 - INFO - Continue browsing
+2025-01-21 16:01:38,174 - INFO - Viewing product 2
+2025-01-21 16:01:39,374 - INFO - Changing quantity to 2
+2025-01-21 16:01:39,689 - INFO - Product Quantity changed correctly
+2025-01-21 16:01:39,689 - INFO - Writing a review
+2025-01-21 16:01:40,092 - INFO - Adding product 2 to cart
+2025-01-21 16:01:40,155 - INFO - Opening the cart page
+2025-01-21 16:01:41,838 - INFO - Redirected to Cart page
+2025-01-21 16:01:41,838 - INFO - Deleting an item
+2025-01-21 16:01:41,939 - INFO - Proceeding to Checkout
+2025-01-21 16:01:43,282 - INFO - Successfully redirected to Checkout page
+2025-01-21 16:01:45,396 - INFO - Test completed for test_add_to_cart_with_a_valid_account.py using Chrome.
