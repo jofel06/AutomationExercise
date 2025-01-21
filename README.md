@@ -23,5 +23,5 @@ I also used Selenium Webdriver for the web framework.
 5. **Install the dependencies**:
    pip install -r requirements.txt
 
-6. **To run the test
+6. **To run the test**:
      pytest
