@@ -2,6 +2,7 @@ from Locators.Page_Locators import AddToCart
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+import pytest
 import logging
 import datetime
 
@@ -101,3 +102,4 @@ def test_add_to_cart(driver, take_screenshot, request):
         logger.error(f"An error occurred: {e}")
         screenshot_error = (f"Error_Screenshot_at_{test_file_name}_using_{browser_name}_on_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.png")
         take_screenshot(screenshot_error)
+        pytest.fail(f"test failed due to: {e}")

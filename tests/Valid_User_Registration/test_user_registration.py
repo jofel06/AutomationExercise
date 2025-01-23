@@ -1,3 +1,4 @@
+import pytest
 
 from Locators.Page_Locators import UserRegistration
 from selenium.webdriver.support.wait import WebDriverWait
@@ -84,5 +85,6 @@ def test_user_registration(driver, take_screenshot, request):
         logger.error(f"An error occurred: {e}")
         screenshot_error = (f"Error_Screenshot_at_{test_file_name}_using_{browser_name}_on_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.png")
         take_screenshot(screenshot_error)
+        pytest.fail(f"test failed due to: {e}")
 
 

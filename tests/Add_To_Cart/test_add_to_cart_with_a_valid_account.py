@@ -120,6 +120,7 @@ def test_add_to_cart_with_valid_account(driver, valid_login_credentials, take_sc
         logger.error(f"An error occurred: {e}")
         screenshot_error = (f"Error_Screenshot_at_{test_file_name}_using_{browser_name}_on_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.png")
         take_screenshot(screenshot_error)
+        pytest.fail(f"test failed due to: {e}")
 
 
 

@@ -48,5 +48,6 @@ def test_successful_login_with_valid_email_and_password(driver, valid_login_cred
         logger.error(f"An error occurred: {e}")
         screenshot_error = (f"Error_Screenshot_at_{test_file_name}_using_{browser_name}_on_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.png")
         take_screenshot(screenshot_error)
+        pytest.fail(f"test failed due to: {e}")
 
 

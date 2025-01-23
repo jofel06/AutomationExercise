@@ -32,7 +32,7 @@ def pytest_configure():
 def driver(request):
     browser_name = request.param
     test_file_name = request.node.parent.name # This gives the test file's name
-    logging.info(f"Starting the Test for: {test_file_name} using {browser_name} browser.")
+
 
     # Generate log filename based on browser and current date/time
     current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
@@ -47,16 +47,18 @@ def driver(request):
     # Add file handler to the root logger
     logging.getLogger().addHandler(file_handler)
 
-    # Set up WebDriver based on the browser
-    if request.param == "Chrome":
+    # Set up the WebDriver
+    if browser_name == "Chrome":
         driver = webdriver.Chrome()
-    elif request.param == "Edge":
+    elif browser_name == "Edge":
         driver = webdriver.Edge()
     else:
         raise ValueError("Unsupported browser!")
-
+    logging.info(f"Starting the Test for: {test_file_name} using {browser_name} browser.")
     driver.maximize_window()
     yield driver
+
+    # Cleanup
     driver.quit()
     logging.info(f"Test completed for {test_file_name} using {browser_name}.")
     logging.getLogger().removeHandler(file_handler)
