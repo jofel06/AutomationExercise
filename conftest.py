@@ -13,7 +13,7 @@ def create_log_dir():
 
 #this configures pytest and logging
 @pytest.hookimpl(tryfirst=True)
-def pytest_configure(config):
+def pytest_configure():
     create_log_dir()
 
     # Basic logging configuration to display logs in the console
@@ -60,7 +60,6 @@ def driver(request):
     driver.quit()
     logging.info(f"Test completed for {test_file_name} using {browser_name}.")
     logging.getLogger().removeHandler(file_handler)
-
 
 
 """Fixture for Capturing a Screenshot"""
