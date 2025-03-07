@@ -1,0 +1,14 @@
+2025-03-07 14:44:40,052 - INFO - Starting the Test for: test_user_registration.py using Chrome browser.
+2025-03-07 14:44:40,078 - INFO - chrome browser opened successfully
+2025-03-07 14:44:43,249 - INFO - Clicking the Signup/Login icon
+2025-03-07 14:44:44,003 - INFO - Redirected to Signup / login page
+2025-03-07 14:44:44,004 - INFO - Typing New username and email address
+2025-03-07 14:44:44,114 - INFO - Clicking Signup button
+2025-03-07 14:44:44,996 - INFO - Redirected to Signup / Registration page
+2025-03-07 14:44:44,997 - INFO - Typing Account Information
+2025-03-07 14:44:45,265 - INFO - Checking sign up News letter and Receive Special offers checkbox
+2025-03-07 14:44:45,385 - INFO - Typing Address Information
+2025-03-07 14:44:45,802 - INFO - Clicking the Create Account button
+2025-03-07 14:44:47,118 - INFO - Account Registration Successful
+2025-03-07 14:44:49,736 - INFO - Account Successfully Deleted
+2025-03-07 14:44:51,830 - INFO - Test completed for test_user_registration.py using Chrome.

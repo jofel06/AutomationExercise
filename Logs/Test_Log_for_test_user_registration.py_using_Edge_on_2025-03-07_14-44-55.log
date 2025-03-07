@@ -1,0 +1,14 @@
+2025-03-07 14:44:59,536 - INFO - Starting the Test for: test_user_registration.py using Edge browser.
+2025-03-07 14:44:59,561 - INFO - MicrosoftEdge browser opened successfully
+2025-03-07 14:45:06,852 - INFO - Clicking the Signup/Login icon
+2025-03-07 14:45:08,350 - INFO - Redirected to Signup / login page
+2025-03-07 14:45:08,351 - INFO - Typing New username and email address
+2025-03-07 14:45:08,463 - INFO - Clicking Signup button
+2025-03-07 14:45:09,643 - INFO - Redirected to Signup / Registration page
+2025-03-07 14:45:09,644 - INFO - Typing Account Information
+2025-03-07 14:45:09,915 - INFO - Checking sign up News letter and Receive Special offers checkbox
+2025-03-07 14:45:10,029 - INFO - Typing Address Information
+2025-03-07 14:45:10,488 - INFO - Clicking the Create Account button
+2025-03-07 14:45:12,086 - INFO - Account Registration Successful
+2025-03-07 14:45:16,498 - INFO - Account Successfully Deleted
+2025-03-07 14:45:18,630 - INFO - Test completed for test_user_registration.py using Edge.

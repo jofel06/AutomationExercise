@@ -3,7 +3,9 @@ import datetime
 import os
 import logging
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.edge.options import Options as EdgeOptions
+
 
 # Create the Logs directory if it doesn't exist
 def create_log_dir():
@@ -50,17 +52,18 @@ def driver(request):
 
     # Set up the WebDriver
     if browser_name == "Chrome":
-        driver = webdriver.Chrome()
-        chrome_options = Options()
+        chrome_options = ChromeOptions()
         chrome_options.add_argument("--headless")
         chrome_options.add_argument("--disable-gpu")
         chrome_options.add_argument("--window-size=1920,1080")
+        driver = webdriver.Chrome(options=chrome_options)
+
     elif browser_name == "Edge":
-        driver = webdriver.Edge()
-        edge_options = Options()
+        edge_options = EdgeOptions()
         edge_options.add_argument("--headless")  # Enable headless mode
         edge_options.add_argument("--disable-gpu")
         edge_options.add_argument("--window-size=1920,1080")
+        driver = webdriver.Edge(options=edge_options)
     else:
         raise ValueError("Unsupported browser!")
     logging.info(f"Starting the Test for: {test_file_name} using {browser_name} browser.")
