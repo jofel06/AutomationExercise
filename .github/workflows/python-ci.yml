@@ -3,14 +3,14 @@ name: Python CI
 on:
   push:
     branches:
-      - master  #Trigger on push to the 'main' branch
+      - master
   pull_request:
     branches:
-      - master  # Trigger on pull requests to the 'main' branch
+      - master
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # Use a Linux environment for the job
+    runs-on: ubuntu-latest
 
     steps:
     - name: Check out code
@@ -19,7 +19,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.9'  # Specify the Python version (you can change this)
+        python-version: '3.9'  # Specify the Python version
 
     - name: Install Google Chrome
       run: |
@@ -43,9 +43,9 @@ jobs:
     - name: Install EdgeDriver
       run: |
         wget https://msedgedriver.azureedge.net/134.0.3124.51/edgedriver_linux64.zip
-        unzip edgedriver_linux64.zip
-        chmod +x edgedriver_linux64/msedgedriver
-        sudo mv edgedriver_linux64/msedgedriver /usr/local/bin/
+        unzip edgedriver_linux64.zip 
+        chmod +x msedgedriver 
+        sudo mv msedgedriver /usr/local/bin/
 
     - name: Install dependencies
       run: |
