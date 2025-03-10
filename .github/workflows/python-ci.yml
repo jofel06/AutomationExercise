@@ -21,11 +21,6 @@ jobs:
       with:
         python-version: '3.9'  # Specify the Python version (you can change this)
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt  # Install dependencies from requirements.txt
-
     - name: Install Google Chrome
       run: |
         wget -q -O google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -42,13 +37,21 @@ jobs:
       run: |
         wget https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.35/linux64/chromedriver-linux64.zip
         unzip chromedriver-linux64.zip
-        sudo mv chromedriver /usr/local/bin/
+        chmod +x chromedriver-linux64/chromedriver
+        sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
 
     - name: Install EdgeDriver
       run: |
         wget https://msedgedriver.azureedge.net/134.0.3124.51/edgedriver_linux64.zip
         unzip edgedriver_linux64.zip
-        sudo mv msedgedriver /usr/local/bin/
+        chmod +x edgedriver_linux64/edgedriver
+        sudo mv edgedriver_linux64/edgedriver /usr/local/bin/
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Install dependencies from requirements.txt
+
         
     - name: Run tests
       run: |
