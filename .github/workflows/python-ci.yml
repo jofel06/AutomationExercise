@@ -44,8 +44,8 @@ jobs:
       run: |
         wget https://msedgedriver.azureedge.net/134.0.3124.51/edgedriver_linux64.zip
         unzip edgedriver_linux64.zip
-        chmod +x edgedriver_linux64/edgedriver
-        sudo mv edgedriver_linux64/edgedriver /usr/local/bin/
+        chmod +x edgedriver_linux64/msedgedriver
+        sudo mv edgedriver_linux64/msedgedriver /usr/local/bin/
 
     - name: Install dependencies
       run: |
